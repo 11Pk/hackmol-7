@@ -4,36 +4,11 @@ import { useEffect } from "react";
 import Image from "next/image";
 import "./hero.css";
 
-export default function Hero() {
-    useEffect(() => {
-        const particlesContainer = document.getElementById("particles");
-        const particleCount = 50;
-
-        if (!particlesContainer) return;
-
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement("div");
-            particle.className = "particle";
-            particle.style.left = Math.random() * 100 + "%";
-            particle.style.animationDuration =
-                Math.random() * 10 + 15 + "s";
-            particle.style.animationDelay =
-                Math.random() * 5 + "s";
-
-            particlesContainer.appendChild(particle);
-        }
-
-        return () => {
-            particlesContainer.innerHTML = "";
-        };
-    }, []);
-
     return (
         <>
             {/* Background Effects */}
             <div className="background-container">
                 <div className="radial-glow"></div>
-                {/* <div className="particles" id="particles"></div> */}
             </div>
 
             {/* Hero Section */}
