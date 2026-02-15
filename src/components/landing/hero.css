@@ -1,0 +1,275 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Colors */
+:root {
+  --midnight: #080E1C;
+  --deep-blue: #0f1829;
+  --glow-blue: #4da8da;
+  --light-cyan: #89cff0;
+  --white: #ffffff;
+  --off-white: #e8f0f7;
+  --gold: #d4af37;
+  --shadow: rgba(77, 168, 218, 0.4);
+}
+
+/* Background */
+
+body {
+  font-family: "Cormorant Garamond", serif;
+  background: var(--midnight);
+  color: var(--off-white);
+  overflow-x: hidden;
+}
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.radial-glow {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(
+    circle,
+    rgba(77, 168, 218, 0.15) 0%,
+    transparent 70%
+  );
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.5;
+  }
+}
+
+/* Particles */
+
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--light-cyan);
+  border-radius: 50%;
+  animation: float linear infinite;
+  opacity: 0;
+  z-index: 2;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) translateX(50px);
+    opacity: 0;
+  }
+}
+
+/* Hero Section */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: transparent;
+  z-index: 3;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Logo */
+
+.logo-container {
+  margin-bottom: 3rem;
+  animation: fadeInDown 1.2s ease-out;
+}
+
+.logo-ornament {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  filter: drop-shadow(0 0 30px rgba(77, 168, 218, 0.6));
+}
+
+.logo-overlay {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    text-align: center;
+}
+
+.logo-overlay img{
+    width: 500px;
+    max-width: 95vw;
+}
+
+/* Character */
+
+.character-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 420px;
+  height: 90vh;
+}
+
+.character-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 800px;
+  background: radial-gradient(
+    ellipse,
+    var(--glow-blue) 0%,
+    transparent 60%
+  );
+  opacity: 0.4;
+  animation: characterPulse 4s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes characterPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+.character {
+  width: 400px;
+  height: auto;
+  filter: drop-shadow(0 10px 40px rgba(0, 0, 0, 0.7));
+  object-fit: cover;
+}
+
+/* Scroll Indicator */
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scroll-arrow {
+  cursor: pointer;
+
+  opacity: 0.85;
+  transition: all 0.3s ease;
+
+  filter: drop-shadow(0 0 10px var(--glow-blue));
+  animation: bounce 2s infinite;
+}
+
+.scroll-arrow:hover {
+  opacity: 1;
+  transform: translateY(6px);
+}
+
+/* Animations */
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .logo-ornament {
+    max-width: 90%;
+  }
+
+  .character {
+    width: 300px;
+  }
+}
