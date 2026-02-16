@@ -285,15 +285,15 @@
   }
 
   .timeline-card-title {
-    font-size: 17px;
+    font-size: 22px;
   }
 
   .timeline-card-desc {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .timeline-card-date {
-    font-size: 11px;
+    font-size: 16px;
   }
 
   .timeline-card-bullet {
@@ -337,16 +337,16 @@
   }
 
   .timeline-card-title {
-    font-size: 14px;
+    font-size: 20px;
     letter-spacing: 0.12em;
   }
 
   .timeline-card-desc {
-    font-size: 11px;
+    font-size: 16px;
   }
 
   .timeline-card-date {
-    font-size: 10px;
+    font-size: 16px;
     margin-left: 0;
     margin-top: 8px;
     width: 100%;
